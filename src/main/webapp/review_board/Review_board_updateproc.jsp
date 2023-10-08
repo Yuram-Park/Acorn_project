@@ -1,7 +1,7 @@
-<!-- JavaBean ¹æ½Ä -->
+<!-- JavaBean ë°©ì‹ -->
 
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,14 +13,14 @@
 <jsp:useBean id="dao" class="review_boardbean.BoardDao"></jsp:useBean>
 
 <%
-	request.setCharacterEncoding("euc-kr");
+	request.setCharacterEncoding("UTF-8");
 %>
 
 <jsp:setProperty property="*" name="dto"/>
 
 <% 
 	dao.setReviewUpdate(dto);
-	response.sendRedirect("Review_board_list.jsp"); // ÇØ´ç ±Û·Î ³Ñ¾î°¡°Ô ÇÏ±â
+	response.sendRedirect("Review_board_list.jsp"); // í•´ë‹¹ ê¸€ë¡œ ë„˜ì–´ê°€ê²Œ í•˜ê¸°
 %>
 
 </body>

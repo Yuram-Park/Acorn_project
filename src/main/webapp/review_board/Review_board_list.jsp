@@ -1,18 +1,18 @@
-<!-- JavaBean ¹æ½Ä -->
+<!-- JavaBean ë°©ì‹ -->
 
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="review_boardbean.*" %>
 <%!
-	int totalRecord = 0; // ÃÑ ±ÛÀÇ °¹¼ö
-	int numPerPage = 3; // ÇÑ ÆäÀÌÁö ´ç º¸¿©Áú ±Û °¹¼ö
-	int totalPage = 0; // ÃÑ ÆäÀÌÁö ¼ö
-	int nowPage = 0; // ÇöÀç ÆäÀÌÁö
-	int beginPerPage = 0; // ÆäÀÌÁöº° ½ÃÀÛ ¹øÈ£
-	int pagePerBlock = 2; // ºí·° ´ç ÆäÀÌÁö ¼ö
-	int totalBlock = 0; // ÃÑ ºí·° ¼ö
-	int nowBlock = 0; // ÇöÀç ºí·°
+	int totalRecord = 0; // ì´ ê¸€ì˜ ê°¯ìˆ˜
+	int numPerPage = 3; // í•œ í˜ì´ì§€ ë‹¹ ë³´ì—¬ì§ˆ ê¸€ ê°¯ìˆ˜
+	int totalPage = 0; // ì´ í˜ì´ì§€ ìˆ˜
+	int nowPage = 0; // í˜„ì¬ í˜ì´ì§€
+	int beginPerPage = 0; // í˜ì´ì§€ë³„ ì‹œì‘ ë²ˆí˜¸
+	int pagePerBlock = 2; // ë¸”ëŸ­ ë‹¹ í˜ì´ì§€ ìˆ˜
+	int totalBlock = 0; // ì´ ë¸”ëŸ­ ìˆ˜
+	int nowBlock = 0; // í˜„ì¬ ë¸”ëŸ­
 %>
 
 
@@ -30,7 +30,7 @@
 		margin: 20px;
 	}
 	
-	/* º»¹® ³»¿ë ÀÏºÎ¸¸ °¡Á®¿À±â */
+	/* ë³¸ë¬¸ ë‚´ìš© ì¼ë¶€ë§Œ ê°€ì ¸ì˜¤ê¸° */
 	.content {
 		display: inline-block;
 		width: 200px;
@@ -43,7 +43,7 @@
 <script>
 	function check(){
 		if(document.search.keyWord.value == ""){
-			alert("°Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			alert("ê²€ìƒ‰ì–´ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 			document.search.keyWord.focus();
 			return;
 		}
@@ -53,19 +53,19 @@
 <body>
 <jsp:useBean id="dao" class="review_boardbean.BoardDao"/>
 <%
-	request.setCharacterEncoding("euc-kr");
+	request.setCharacterEncoding("UTF-8");
 %>
-	<h1>ÈÄ±â °Ô½ÃÆÇ</h1>
+	<h1>í›„ê¸° ê²Œì‹œíŒ</h1>
 	<form method="post" name="search" action="Review_board_list.jsp">
 		<div style="float: right;">
 			<select name="option" size="1">
-				<option value="t" selected>Á¦¸ñ</option>
-				<option value="c">³»¿ë</option>
-				<option value="tc">Á¦¸ñ+³»¿ë</option>
-				<option value="n">´Ğ³×ÀÓ</option>
+				<option value="t" selected>ì œëª©</option>
+				<option value="c">ë‚´ìš©</option>
+				<option value="tc">ì œëª©+ë‚´ìš©</option>
+				<option value="n">ë‹‰ë„¤ì„</option>
 			</select> 
-			<input type="text" name="searchWord" placeholder="°Ë»ö" />
-			<input type="submit" value="°Ë»ö" onClick="check()"/>
+			<input type="text" name="searchWord" placeholder="ê²€ìƒ‰" />
+			<input type="submit" value="ê²€ìƒ‰" onClick="check()"/>
 		</div>
 	</form>
 	<br><br>
@@ -97,7 +97,7 @@
 	%>
 		<div class="place">
 			<div class="image">
-				<!-- image ÀÖ¾î¾ßÇÔ --> <!-- ±×¸² Å¬¸¯ÇØµµ µÇ°Ô²û ¸¸µé±â -->
+				<!-- image ìˆì–´ì•¼í•¨ --> <!-- ê·¸ë¦¼ í´ë¦­í•´ë„ ë˜ê²Œë” ë§Œë“¤ê¸° -->
 				<img src="../img/img1.jpeg" width="200px" heigth="200px" /> 
 			</div>
 			<div class="text">
@@ -121,11 +121,11 @@
 	%>
 		
 	</div><br><br>
-	<input type="button" value="°Ô½Ã±Û ÀÛ¼ºÇÏ±â" onClick="location='Review_board_post.jsp'"/><br>
+	<input type="button" value="ê²Œì‹œê¸€ ì‘ì„±í•˜ê¸°" onClick="location='Review_board_post.jsp'"/><br>
 	<%
 		if(nowBlock > 0){
 	%>
-			<a href="Review_board_list.jsp?nowPage=<%= pagePerBlock*(nowBlock-1)%>&nowBlock=<%=nowBlock-1%>">ÀÌÀü</a>
+			<a href="Review_board_list.jsp?nowPage=<%= pagePerBlock*(nowBlock-1)%>&nowBlock=<%=nowBlock-1%>">ì´ì „</a>
 	<%
 		}
 	
@@ -139,7 +139,7 @@
 		
 		if(nowBlock + 1 <totalBlock){
 	%>
-			<a href="Review_board_list.jsp?nowPage=<%=pagePerBlock*(nowBlock+1)%>&nowBlock=<%=nowBlock+1%>">´ÙÀ½</a>
+			<a href="Review_board_list.jsp?nowPage=<%=pagePerBlock*(nowBlock+1)%>&nowBlock=<%=nowBlock+1%>">ë‹¤ìŒ</a>
 	<%
 		}
 	%>

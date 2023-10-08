@@ -1,7 +1,7 @@
-<!-- JavaBean ¹æ½Ä -->
+<!-- JavaBean ë°©ì‹ -->
 
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="review_boardbean.*" %>
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
 <jsp:setProperty property="post_id" name="dto"/>
 <jsp:useBean id="dao" class="review_boardbean.BoardDao"/>
 
-	<h1>ÈÄ±â °Ô½ÃÆÇ</h1>
+	<h1>í›„ê¸° ê²Œì‹œíŒ</h1>
 	
 	<%
 		BoardDto detailDto = dao.getReviewDetail(dto);
@@ -25,9 +25,9 @@
 		<input type="hidden" name="user_nickname" value="<%=detailDto.getUser_nickname() %>"/>	
 		<input type="text" name="post_title" size="40" value="<%=detailDto.getPost_title() %>"/><br><br>
 		<textarea name="post_content" style="width:80%;height:200px;"><%=detailDto.getPost_content() %></textarea><br><br>
-		<input type="text" size="40" value="»çÁø Ãß°¡ (»çÁøÀº ÃÖ´ë 20Àå±îÁö µî·Ï °¡´ÉÇÕ´Ï´Ù)"/><br><br>
-		<input type="reset" value="ÀÛ¼ºÃë¼Ò"/>
-		<input type="submit" value="µî·ÏÇÏ±â"/>
+		<input type="text" size="40" value="ì‚¬ì§„ ì¶”ê°€ (ì‚¬ì§„ì€ ìµœëŒ€ 20ìž¥ê¹Œì§€ ë“±ë¡ ê°€ëŠ¥í•©ë‹ˆë‹¤)"/><br><br>
+		<input type="reset" value="ìž‘ì„±ì·¨ì†Œ"/>
+		<input type="submit" value="ë“±ë¡í•˜ê¸°"/>
 	</form>
 </body>
 </html>

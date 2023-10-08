@@ -1,7 +1,7 @@
-<!-- JavaBean ��� -->
+<!-- JavaBean 방식 -->
 
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +13,10 @@
 <jsp:useBean id="dao" class="review_boardbean.BoardDao"></jsp:useBean>
 
 <%
-	request.setCharacterEncoding("euc-kr");
+	request.setCharacterEncoding("UTF-8");
 %>
 
-<jsp:setProperty property="*" name="dto"/>
+<jsp:setProperty property="*" name="dto"/> //날짜가 지금 안들어가고있음!!
 
 <% 
 	dao.setReviewPost(dto);
