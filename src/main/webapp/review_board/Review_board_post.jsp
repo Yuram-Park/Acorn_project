@@ -12,10 +12,9 @@
 	<h1>후기 게시판</h1>
 	<form name="review_board_post" method="post" action="Review_board_postproc.jsp">
 	
-		임시 user_id/nickname 입력값 받기<br>
-		<input type="text" name="user_id" placeholder="user_id 임시"/><br>
-		<input type="text" name="user_nickname" placeholder="nickname 임시"/><br><br>
-	
+		<!--  user_id/nickname 값 넘기기 -->
+		<input type="hidden" name="user_id" value="<%=session.getAttribute("user_id")%>"/><br>
+		<input type="hidden" name="user_nickname" value="<%=session.getAttribute("user_nickname")%>"/><br><br>
 	
 		<input type="text" name="post_title" size="40" placeholder="제목을 입력해주세요"/><br><br>
 		<textarea placeholder="내용을 입력해주세요" name="post_content" style="width:80%;height:200px;"></textarea><br><br>

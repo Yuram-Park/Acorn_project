@@ -140,7 +140,7 @@ public class BoardDao {
 	// postproc.jsp
 	public void setReviewPost(BoardDto dto) {
 		String sql = "insert into post(post_id, board_id, user_id, user_nickname, post_title, post_content) "
-				+ "values(post_id_seq.nextVal, 2, ?, ?, ?, ?)"; //date 및 views는 db에서 default값으로 설정
+				+ "values(nextval(post_id_seq), 2, ?, ?, ?, ?)"; //date 및 views는 db에서 default값으로 설정
 			
 		try {
 			con = ds.getConnection();
@@ -195,4 +195,5 @@ public class BoardDao {
 			freeConnection();
 		}
 	}
+	
 }

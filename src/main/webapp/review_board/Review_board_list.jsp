@@ -101,7 +101,7 @@
 				<img src="../img/img1.jpeg" width="200px" heigth="200px" /> 
 			</div>
 			<div class="text">
-				<a href="Review_board_detail.jsp?post_id=<%=dto.getPost_id() %>"><h3><%= dto.getPost_title() %></h3></a>
+				<a href="Review_board_detail.jsp?post_id=<%=dto.getPost_id()%>"><h3><%= dto.getPost_title() %></h3></a>
 				<table border="1" width="200px">
 					<tr>
 						<td colspan="2"><%= dto.getUser_nickname()%></td>
