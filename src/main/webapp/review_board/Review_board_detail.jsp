@@ -63,26 +63,36 @@
 	<jsp:useBean id="commentDto" class="comment_bean.CommentDto"/>
 	<jsp:setProperty property="post_id" name="commentDto"/>
 	<jsp:useBean id="commentDao" class="comment_bean.CommentDao"/>
-	
-	<h3>댓글 ? 개</h3>
-	<form method="post" action="Comments.jsp" >
-		<input type="hidden" value="<%=detailDto.getPost_id()%>" name="post_id"/>
-		<input type="text" value="<%=session.getAttribute("user_nickname") %>" name="user_nickname" readonly/>
-		<textarea placeholder="댓글을 입력해주세요" name="comments_content" style="width:60%;height:20px;"></textarea><br><br>
-		<input type="submit" value="댓글 달기"/>
-	</form>
-	<table width="80%" align="center">
 <%
 	Vector vec = (Vector)commentDao.getComments(detailDto.getPost_id());
-	
+%>
+	<h3>댓글 <%=vec.size()%> 개</h3>
+	<form method="post" action="../comment/Comments.jsp" >
+		<input type="hidden" value="<%=detailDto.getPost_id()%>" name="post_id"/>
+		<input type="text" value="<%=session.getAttribute("user_nickname") %>" name="user_nickname" readonly/>
+		<textarea placeholder="댓글을 입력해주세요" name="comments_content" style="width:60%;height:20px;"></textarea>
+		<input type="submit" value="댓글 달기"/>
+	</form><br>
+	<table width="80%" align="center" style="border-collapse:collapse;">
+<%
 	for(int i=0; i<vec.size(); i++){
 		CommentDto comment = (CommentDto)vec.get(i);
 %>
-		<tr>
+		<tr style="border-top:1px solid black;">
 			<td ><%=comment.getUser_nickname() %></td>
+			<td align="right"><%=comment.getComments_create_date() %></td>
 		</tr>
-		<tr>
-			<td style="border-bottom:1px solid black;"><h5><%=comment.getComments_content() %></h5></td>
+		<tr >
+			<td><h5><%=comment.getComments_content() %></h5></td>
+<%
+	String comment_user_id = comment.getUser_id();
+	if(comment_user_id.equals(session.getAttribute("user_id"))) {
+%>
+			<td align="right"><input type="button" value="수정하기"/><br>
+			<input type="button" value="삭제하기"/></td>
+<%
+	}
+%>
 		</tr>
 <%
 	}

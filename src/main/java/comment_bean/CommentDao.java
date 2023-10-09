@@ -79,7 +79,7 @@ public class CommentDao {
 	
 	// 댓글 보여주기 detail.jsp
 	public List getComments(int post_id) {
-		String sql = "SELECT user_nickname, comments_content, comments_create_date "+
+		String sql = "SELECT comments_id, user_nickname, comments_content, comments_create_date, user_id "+
 				"from comments WHERE post_id=?";
 		Vector vec = new Vector();
 		
@@ -91,6 +91,8 @@ public class CommentDao {
 			
 			while(rs.next()) {
 				CommentDto dto = new CommentDto();
+				dto.setComments_id(Integer.parseInt(rs.getString("comments_id")));
+				dto.setUser_id(rs.getString("user_id"));
 				dto.setUser_nickname(rs.getString("user_nickname"));
 				dto.setComments_content(rs.getString("comments_content"));
 				dto.setComments_create_date(rs.getDate("comments_create_date"));
@@ -103,6 +105,24 @@ public class CommentDao {
 			freeConnection();
 		}
 		return vec;
+	}
+	
+	// update.jsp
+	public void setCommentUpdate(CommentDto dto) {
+		String sql = "UPDATE comments SET comments_content=? WHERE comments_id=?";
+		
+		try {
+			con = ds.getConnection();
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, dto.getComments_content());
+			stmt.setInt(2, dto.getComments_id());
+			stmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("setCommentUpdate : "+ e);
+		} finally {
+			freeConnection();
+		}
 	}
 	
 }

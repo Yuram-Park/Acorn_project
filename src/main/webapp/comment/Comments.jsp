@@ -1,5 +1,3 @@
-<!-- JavaBean 방식 -->
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,18 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:useBean id="dto" class="review_boardbean.BoardDto"></jsp:useBean>
-<jsp:useBean id="dao" class="review_boardbean.BoardDao"></jsp:useBean>
+<jsp:useBean id="dto" class="comment_bean.CommentDto"/>
+<jsp:useBean id="dao" class="comment_bean.CommentDao"/>
 
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
-
 <jsp:setProperty property="*" name="dto"/>
 
-<% 
-	dao.setReviewUpdate(dto);
-	response.sendRedirect("Review_board_detail.jsp"); // 해당 글로 넘어가게 하기
+<%
+	String user_id = (String)session.getAttribute("user_id");
+	dto.setUser_id(user_id);
+	
+	dao.setComments(dto);
+	response.sendRedirect("Review_board_detail.jsp?post_id="+dto.getPost_id());
 %>
 
 </body>
