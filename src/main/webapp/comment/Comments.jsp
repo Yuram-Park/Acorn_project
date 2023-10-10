@@ -16,11 +16,11 @@
 <jsp:setProperty property="*" name="dto"/>
 
 <%
-	String user_id = (String)session.getAttribute("user_id");
+	String user_id = (String)session.getAttribute("sessionID");
 	dto.setUser_id(user_id);
 	
 	dao.setComments(dto);
-	response.sendRedirect("Review_board_detail.jsp?post_id="+dto.getPost_id());
+	response.sendRedirect("../review_board/Review_board_detail.jsp?post_id="+dto.getPost_id());
 %>
 
 </body>

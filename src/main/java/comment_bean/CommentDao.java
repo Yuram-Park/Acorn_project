@@ -22,7 +22,7 @@ public class CommentDao {
 	public CommentDao () {
 		try {
 			Context ctx = new InitialContext();
-			ds = (DataSource)ctx.lookup("java:comp/env/jdbc_mariadb");
+			ds = (DataSource)ctx.lookup("java:comp/env/jdbc/myoracle");
 			
 		} catch (Exception err) {
 			System.out.println("BoardDao.java:" + err);
@@ -58,7 +58,7 @@ public class CommentDao {
 	// Comments.jsp
 	public void setComments(CommentDto dto) {
 		String sql = "INSERT INTO comments (comments_id, user_id, user_nickname, post_id, comments_content) "
-				+ "VALUES (nextval(comments_id_seq), ?, ?, ?, ?)";
+				+ "VALUES (comments_id_seq.nextval, ?, ?, ?, ?)";
 		
 		try {
 			con = ds.getConnection();
@@ -107,7 +107,27 @@ public class CommentDao {
 		return vec;
 	}
 	
-	// update.jsp
+	
+	//임시 댓글수정 보여주기
+	public CommentDto getCommentUpdate(int comments_id) {
+		String sql = "SELECT user_nickname, comments_content, user_id FROM comments WHERE comments_id=?";
+		CommentDto dto = new CommentDto();
+		try {
+		con = ds.getConnection();
+		stmt = con.prepareStatement(sql);
+		stmt.setInt(1, comments_id);
+		rs = stmt.executeQuery();
+		} catch(Exception e) {
+			System.out.println("getComments : " + e);
+		}finally {
+			freeConnection();
+		}
+		
+		return dto;
+	}
+	
+
+	// update_proc.jsp
 	public void setCommentUpdate(CommentDto dto) {
 		String sql = "UPDATE comments SET comments_content=? WHERE comments_id=?";
 		

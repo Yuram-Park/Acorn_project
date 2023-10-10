@@ -4,6 +4,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="review_boardbean.*" %>
+<%@ page import="user.*" %>
 <%@ page import="comment_bean.*" %>
 
 <!DOCTYPE html>
@@ -45,9 +46,9 @@
 	<br><br>
 	
 <%
-	String user_id = detailDto.getUser_nickname();
+	String user_id = detailDto.getUser_id();
 	
-	if(user_id.equals(session.getAttribute("user_id"))) {
+	if(user_id.equals(session.getAttribute("sessionID"))) {
 %>
 	<input type="button" value="수정하기" onClick="location='Review_board_update.jsp?post_id=<%=detailDto.getPost_id() %>'"/>
 	<input type="button" value="삭제하기" onClick="location='Review_board_delete.jsp?post_id=<%=detailDto.getPost_id() %>'"/>
@@ -63,13 +64,19 @@
 	<jsp:useBean id="commentDto" class="comment_bean.CommentDto"/>
 	<jsp:setProperty property="post_id" name="commentDto"/>
 	<jsp:useBean id="commentDao" class="comment_bean.CommentDao"/>
+	<jsp:useBean id="UserDAO" class="user.UserDAO"/>
 <%
 	Vector vec = (Vector)commentDao.getComments(detailDto.getPost_id());
+	
+	String userId = (String)session.getAttribute("sessionID");
+
+	UserBean user = (UserBean)UserDAO.getUser(userId);
+	String now_user_nickname = user.getUser_nickname();
 %>
 	<h3>댓글 <%=vec.size()%> 개</h3>
 	<form method="post" action="../comment/Comments.jsp" >
 		<input type="hidden" value="<%=detailDto.getPost_id()%>" name="post_id"/>
-		<input type="text" value="<%=session.getAttribute("user_nickname") %>" name="user_nickname" readonly/>
+		<input type="text" value="<%=now_user_nickname %>" name="user_nickname" readonly/>
 		<textarea placeholder="댓글을 입력해주세요" name="comments_content" style="width:60%;height:20px;"></textarea>
 		<input type="submit" value="댓글 달기"/>
 	</form><br>
@@ -86,10 +93,10 @@
 			<td><h5><%=comment.getComments_content() %></h5></td>
 <%
 	String comment_user_id = comment.getUser_id();
-	if(comment_user_id.equals(session.getAttribute("user_id"))) {
+	if(comment_user_id.equals(session.getAttribute("sessionID"))) {
 %>
-			<td align="right"><input type="button" value="수정하기"/><br>
-			<input type="button" value="삭제하기"/></td>
+			<td align="right"><input type="button" value="수정" onClick="location='../comment/Comments_update.jsp?comments_id=<%=comment.getComments_id() %>'"/><br>
+			<input type="button" value="삭제"/></td>
 <%
 	}
 %>

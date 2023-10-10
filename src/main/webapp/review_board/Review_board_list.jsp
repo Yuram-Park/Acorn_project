@@ -56,7 +56,7 @@
 	request.setCharacterEncoding("UTF-8");
 %>
 	<h1>후기 게시판</h1><br>
-	<a href="../user/main.jsp">메인페이지</a>
+	<a href="../index.jsp">메인페이지</a>
 	<form method="post" name="search" action="Review_board_list.jsp">
 		<div style="float: right;">
 			<select name="option" size="1">
@@ -99,7 +99,7 @@
 		<div class="place">
 			<div class="image">
 				<!-- image 있어야함 --> <!-- 그림 클릭해도 되게끔 만들기 -->
-				<img src="../img/img1.jpeg" width="200px" heigth="200px" /> 
+				<img src="../img/img1.jpg" width="200px" heigth="200px" /> 
 			</div>
 			<div class="text">
 				<a href="Review_board_detail.jsp?post_id=<%=dto.getPost_id()%>"><h3><%= dto.getPost_title() %></h3></a>
