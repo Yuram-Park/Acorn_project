@@ -56,9 +56,9 @@ public class CommentDao {
 	
 	
 	// Comments.jsp
-	public void setComments(CommentDto dto) {
-		String sql = "INSERT INTO comments (comments_id, user_id, user_nickname, post_id, comments_content) "
-				+ "VALUES (comments_id_seq.nextval, ?, ?, ?, ?)";
+	public void setComment(CommentDto dto) {
+		String sql = "INSERT INTO tblcomment (comment_id, user_id, user_nickname, post_id, comment_content) "
+				+ "VALUES (comment_id_seq.nextval, ?, ?, ?, ?)";
 		
 		try {
 			con = ds.getConnection();
@@ -66,11 +66,11 @@ public class CommentDao {
 			stmt.setString(1, dto.getUser_id());
 			stmt.setString(2, dto.getUser_nickname());
 			stmt.setInt(3, dto.getPost_id());
-			stmt.setString(4, dto.getComments_content());
+			stmt.setString(4, dto.getComment_content());
 			stmt.executeUpdate();
 			
 		} catch (Exception e) {
-			System.out.println("setComments : "+ e);
+			System.out.println("setComment : "+ e);
 		} finally {
 			freeConnection();
 		}
@@ -78,9 +78,9 @@ public class CommentDao {
 	
 	
 	// 댓글 보여주기 detail.jsp
-	public List getComments(int post_id) {
-		String sql = "SELECT comments_id, user_nickname, comments_content, comments_create_date, user_id "+
-				"from comments WHERE post_id=?";
+	public List getComment(int post_id) {
+		String sql = "SELECT comment_id, user_nickname, comment_content, comment_create_date, user_id "+
+				"FROM tblcomment WHERE post_id=?";
 		Vector vec = new Vector();
 		
 		try {
@@ -91,16 +91,16 @@ public class CommentDao {
 			
 			while(rs.next()) {
 				CommentDto dto = new CommentDto();
-				dto.setComments_id(Integer.parseInt(rs.getString("comments_id")));
+				dto.setComment_id(Integer.parseInt(rs.getString("comment_id")));
 				dto.setUser_id(rs.getString("user_id"));
 				dto.setUser_nickname(rs.getString("user_nickname"));
-				dto.setComments_content(rs.getString("comments_content"));
-				dto.setComments_create_date(rs.getDate("comments_create_date"));
+				dto.setComment_content(rs.getString("comment_content"));
+				dto.setComment_create_date(rs.getDate("comment_create_date"));
 				
 				vec.add(dto);
 			}
 		} catch (Exception e) {
-			System.out.println("getComments : "+ e);
+			System.out.println("getComment : "+ e);
 		} finally {
 			freeConnection();
 		}
@@ -109,16 +109,22 @@ public class CommentDao {
 	
 	
 	//임시 댓글수정 보여주기
-	public CommentDto getCommentUpdate(int comments_id) {
-		String sql = "SELECT user_nickname, comments_content, user_id FROM comments WHERE comments_id=?";
+	public CommentDto getCommentUpdate(int comment_id) {
+		String sql = "SELECT user_nickname, comment_content, user_id, post_id FROM tblcomment WHERE comment_id=?";
 		CommentDto dto = new CommentDto();
 		try {
 		con = ds.getConnection();
 		stmt = con.prepareStatement(sql);
-		stmt.setInt(1, comments_id);
+		stmt.setInt(1, comment_id);
 		rs = stmt.executeQuery();
+		
+		while(rs.next()) {
+			dto.setUser_nickname(rs.getString("user_nickname"));
+			dto.setComment_content(rs.getString("comment_content"));
+			dto.setPost_id(Integer.parseInt(rs.getString("post_id")));
+		}
 		} catch(Exception e) {
-			System.out.println("getComments : " + e);
+			System.out.println("getCommentUpdate : " + e);
 		}finally {
 			freeConnection();
 		}
@@ -129,13 +135,30 @@ public class CommentDao {
 
 	// update_proc.jsp
 	public void setCommentUpdate(CommentDto dto) {
-		String sql = "UPDATE comments SET comments_content=? WHERE comments_id=?";
+		String sql = "UPDATE tblcomment SET comment_content=? WHERE comment_id=?";
 		
 		try {
 			con = ds.getConnection();
 			stmt = con.prepareStatement(sql);
-			stmt.setString(1, dto.getComments_content());
-			stmt.setInt(2, dto.getComments_id());
+			stmt.setString(1, dto.getComment_content());
+			stmt.setInt(2, dto.getComment_id());
+			stmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("setCommentUpdate : "+ e);
+		} finally {
+			freeConnection();
+		}
+	}
+	
+	// delete.jsp
+	public void setCommentDelete(int comment_id) {
+		String sql = "DELETE FROM tblcomment WHERE comment_id=?";
+		
+		try {
+			con = ds.getConnection();
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, comment_id);
 			stmt.executeUpdate();
 			
 		} catch (Exception e) {

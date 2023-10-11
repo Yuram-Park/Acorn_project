@@ -57,7 +57,7 @@ public class BoardDao {
 		// Board ID 설정 바꾸기 후기게시판 board_id =2 로 임시지정
 		String sql = "SELECT post_id, user_id, user_nickname, post_title, "
 				+ "post_content, post_create_date, post_update_date, post_views "
-				+ "FROM post WHERE board_id=2 ";
+				+ "FROM tblpost WHERE board_id=2 ";
 		
 		if (searchWord == null || searchWord.isEmpty()) {
 			sql = sql + "ORDER BY post_id";
@@ -108,18 +108,18 @@ public class BoardDao {
 	
 	
 	// detail.jsp, update.jsp
-	public BoardDto getReviewDetail(BoardDto dto) {
-		String sql = "select * from post where board_id=2 and post_id=?";
+	public BoardDto getReviewDetail(int post_id) {
+		String sql = "select * from tblpost where board_id=2 and post_id=?";
 		BoardDto detailDto = new BoardDto();
 		try {
 			con = ds.getConnection();
 			stmt = con.prepareStatement(sql);
-			stmt.setInt(1, dto.getPost_id());
+			stmt.setInt(1, post_id);
 			rs = stmt.executeQuery();
 				
 			while(rs.next()) {
 					
-				detailDto.setPost_id(dto.getPost_id());
+				detailDto.setPost_id(post_id);
 				detailDto.setPost_title(rs.getString("post_title"));
 				detailDto.setPost_views(rs.getInt("post_views"));
 				detailDto.setUser_id(rs.getString("user_id"));
@@ -139,7 +139,7 @@ public class BoardDao {
 	
 	// postproc.jsp
 	public void setReviewPost(BoardDto dto) {
-		String sql = "insert into post(post_id, board_id, user_id, user_nickname, post_title, post_content) "
+		String sql = "insert into tblpost(post_id, board_id, user_id, user_nickname, post_title, post_content) "
 				+ "values(post_id_seq.nextval, 2, ?, ?, ?, ?)"; //date 및 views는 db에서 default값으로 설정
 			
 		try {
@@ -161,7 +161,7 @@ public class BoardDao {
 	// updateproc.jsp
 	public void setReviewUpdate(BoardDto dto) {
 		// 수정하기 버튼이 자기 글에서만 뜨게 수정 후 다시보기
-		String sql = "UPDATE post SET post_title=?, post_content=?, post_update_date=sysdate WHERE post_id=?"; 
+		String sql = "UPDATE tblpost SET post_title=?, post_content=?, post_update_date=sysdate WHERE post_id=?"; 
 		
 		try {
 			con = ds.getConnection();
@@ -181,7 +181,7 @@ public class BoardDao {
 	// delete.jsp
 	public void setReviewDelete(BoardDto dto) {
 		// 삭제하기 버튼이 자기 글에서만 뜨게 수정 후 다시보기
-		String sql = "DELETE FROM post WHERE board_id=2 and post_id=?"; 
+		String sql = "DELETE FROM tblpost WHERE board_id=2 and post_id=?"; 
 		
 		try {
 			con = ds.getConnection();

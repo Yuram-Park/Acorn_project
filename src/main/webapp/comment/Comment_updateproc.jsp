@@ -9,19 +9,13 @@
 <body>
 <jsp:useBean id="dto" class="comment_bean.CommentDto"/>
 <jsp:useBean id="dao" class="comment_bean.CommentDao"/>
-
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
 <jsp:setProperty property="*" name="dto"/>
-
-<%
-	String user_id = (String)session.getAttribute("sessionID");
-	dto.setUser_id(user_id);
-	
-	dao.setComments(dto);
-	response.sendRedirect("../review_board/Review_board_detail.jsp?post_id="+dto.getPost_id());
+<% 
+	dao.setCommentUpdate(dto);
+	response.sendRedirect("../review_board/Review_board_detail.jsp?post_id="+ dto.getPost_id()); // 해당 글로 넘어가게 하기
 %>
-
 </body>
 </html>
