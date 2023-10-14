@@ -1,0 +1,290 @@
+body{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.navout{
+    padding-left:50px;
+    padding-right:50px;	
+}
+
+nav.navbar .container-fluid{
+	background-color: rgb(239, 239, 239);
+	border-bottom: 3px solid rgb(47, 47, 47);
+}
+
+nav.bg-body-tertiary{
+	padding-top : 0;
+}
+
+.navbar-brand{
+    font-size: 35px;
+	margin-left:20px;
+}
+
+.navbar form.d-flex{
+	margin-right:30px;
+}
+
+.fa-circle-user{
+    color:rgb(170, 170, 170);
+    margin-left:20px;
+}
+
+.nav-user{
+    margin-right:30px;
+}
+
+.nav-item{
+    margin-left:70px;
+    font-size:18px;
+    align-items: center;
+}
+
+.dropdown-item{
+    margin-right:0px;
+}
+
+.dropdown-item:hover{
+    background-color: rgb(75, 75, 75);
+    color:white;
+}
+
+.dropdown-item:active{
+    background-color: rgb(75, 75, 75);
+    color:white;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+nav.navbar{
+    --bs-navbar-padding-y : 0;
+}
+
+
+/* 왼쪽 메뉴바 */
+
+.mylist{
+    width:300px;
+    height:1000px;
+    background-color: #e7f4ff;
+    float:left;
+}
+
+.mylist h2{
+    text-align:center;
+    margin-top:20px;
+}
+
+.mylist .list h4{
+    margin-top:50px;
+    margin-left:10px;
+}
+
+
+.mylist .list h4:hover{
+    color:rgb(25, 108, 233);
+    cursor: pointer;
+}
+
+.mylist .list .active{
+    color:rgb(25, 108, 233);
+}
+
+
+#mypage{
+    width: 500px;
+}
+
+.container_2{
+    font-size:23px;
+    text-align: center;
+    margin-left:800px;
+}
+
+.input-group{
+    width:500px;
+}
+
+input.form-control{
+    width:380.34px;
+}
+
+.EditButton{
+    display: flex;
+}
+
+.form-control{
+    width:500px;
+}
+
+
+/* 편집 버튼 */
+
+.btn{
+    height: 100%;
+}
+
+.withdrawalButton{
+    display: flex;
+    height: 100%;
+}
+
+h4{
+    margin-top: 6px;
+}
+
+.btn_1, h1{
+    margin-left: 600px;
+}
+
+.pwcheck{
+    margin-left: 350px;
+}
+
+.container_4{
+    padding: 50px;
+    width: calc(100% - 350px);
+    height: 1600px;
+    display: flex;
+    margin-left: 350px;
+}
+
+
+.child_1 {
+    margin: 0 auto;
+}
+
+.child_2{
+    display: flex;
+    margin-right: 50px;
+    float:right;
+}
+
+.form-select{
+    width: 150px;
+}
+
+input.form-control.me-2{
+    width: 200px;
+}
+
+div.nextBtn{
+    margin-left: 30vw;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+div.nextBtn button{
+   border:1px solid black;
+}
+
+.card{
+    height:300px;
+}
+
+div.col {
+    width: 450px
+}
+
+div.card-body{
+    overflow: hidden;
+}
+
+/* 내 정보 수정 */
+
+input.form-control{
+    width: 400px;
+}
+
+/* -------------------------*/
+
+/*   후기 게시판 세부   */
+.child_3{
+    background-color: lightgray;
+    margin-top: 40px;
+}
+
+button.btn.btn-secondary{
+    margin: auto 10px;
+}
+
+.container_5{
+    padding: 50px;
+    width: calc(100% - 350px);
+    height: 1500px;
+    display: flex;
+}
+
+#Announcement{
+    text-align: center;
+    padding-top: 20px;
+}
+
+.hits{
+    text-align: left;
+    margin-left: 20px;
+    float:left;
+}
+
+.right_content{
+    margin-right: 20px;
+    float:right;
+}
+
+img{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.content_1{
+    padding: 20px;
+}
+
+div.btn_cen{
+    margin-left: 900px;
+}
+
+select.form-select{
+    width: 120px;
+    margin-left: 820px;
+}
+
+li.nav-item.dropdown-center::marker{
+    list-style:none;
+}
+
+.setting {
+    margin-left: 1400px;
+}
+
+.dropdown-menu {
+    --bs-dropdown-min-width: 0;
+}
+
+.comment_1{
+    display: flex;
+}
+
+ul.dropdown-menu{
+    margin-right: 50px;
+}
+
+.header_1{
+    display: flex;
+}
+
+.child_4{
+    display: flex;
+    margin-top: 100px;
+}
+
+.fa-review{
+    color:rgb(170, 170, 170);
+    margin-left:1100px;
+}
+/* ----------------- */

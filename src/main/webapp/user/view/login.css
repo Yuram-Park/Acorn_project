@@ -1,0 +1,156 @@
+body{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.navout{
+    padding-left:50px;
+    padding-right:50px;	
+}
+
+nav.navbar a.navlogo{
+    font-size: 50px;
+    font-weight: 500;
+    margin-left : 45vw;
+    text-decoration: none;
+    color:black;
+}
+
+.frontbar{
+    width:100%;
+    height:100px;
+}
+
+.frontbar .loginbar{
+    width:33%;
+    height:100%;
+    float : left;
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding-top:27px;
+    font-size: 30px;
+}
+
+.frontbar .loginbar:hover{
+    border-bottom: 1px solid red;
+    color:red;
+    cursor: pointer;
+}
+
+.frontbar .loginbar:active{
+    border-bottom: 3px solid red;
+    color:red;
+    font-weight: 600;
+}
+
+.frontbar .signbar{
+    width:33%;
+    height:100%;
+    float : left;
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding-top:27px;
+    font-size: 30px;
+}
+
+.frontbar .signbar:hover{
+    border-bottom: 1px solid red;
+    color:red;
+    cursor: pointer;
+}
+
+.frontbar .signbar:active{
+    border-bottom: 3px solid red;
+    color:red;
+    font-weight: 600;
+}
+
+.frontbar .findbar{
+    width:34%;
+    height:100%;
+    float : left;
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding-top:27px;
+    font-size: 30px;
+}
+
+.frontbar .findbar:hover{
+    border-bottom: 1px solid red;
+    color:red;
+    cursor: pointer;
+}
+
+.frontbar .findbar:active{
+    border-bottom: 3px solid red;
+    color:red;
+    font-weight: 600;
+}
+
+.frontbar .active{
+    border-bottom: 3px solid red;
+    color:red;
+    font-weight: 600;
+}
+
+.navout h1{
+    height: 50px;
+    margin-left:45vw;
+    margin-top:130px;
+    margin-bottom:30px;
+}
+
+.navout .input{
+    width:800px;
+    height:150px;
+    margin-left:35vw;
+}
+
+.navout .input-group{
+    width:500px;
+    margin-top:20px;
+    float:left;
+}
+
+.navout .input-group i{
+    color:rgb(170, 170, 170);
+}
+
+.navout i.fa-eye{
+    color:black;
+    font-size: 25px;
+    cursor: pointer;
+    float:left;
+    margin-left:30px;
+    margin-top:30px;
+}
+
+.navout .input-group input{
+    height: 50px;
+}
+
+.navout .form-check{
+    width:300px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:30px;
+    font-size: 18px;
+}
+
+.social{
+    width:500px;
+    margin:auto;
+    margin-top: 50px;
+}
+
+.social img{
+	width:50px;
+	height:50px;
+	object-fit: cover;
+    margin-left:90px;
+    cursor: pointer;
+}
+
+input.btn{
+    margin-top:50px;
+    margin-left:46vw;
+}

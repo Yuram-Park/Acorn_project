@@ -1,0 +1,166 @@
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+ }
+ 
+ .navout{
+     padding-left:50px;
+     padding-right:50px;   
+ }
+ 
+ nav.navbar .navlogo{
+     font-size: 50px;
+     font-weight: 500;
+     margin-left : 45vw;
+ }
+ 
+ .frontbar{
+     width:100%;
+     height:100px;
+ }
+ 
+ .frontbar .loginbar{
+     width:33%;
+     height:100%;
+     float : left;
+     border-bottom: 1px solid black;
+     text-align: center;
+     padding-top:27px;
+     font-size: 30px;
+ }
+ 
+ .frontbar .loginbar:hover{
+     border-bottom: 1px solid red;
+     color:red;
+     cursor: pointer;
+ }
+ 
+ .frontbar .loginbar:active{
+     border-bottom: 3px solid red;
+     color:red;
+     font-weight: 600;
+ }
+ 
+ .frontbar .signbar{
+     width:33%;
+     height:100%;
+     float : left;
+     border-bottom: 1px solid black;
+     text-align: center;
+     padding-top:27px;
+     font-size: 30px;
+ }
+ 
+ .frontbar .signbar:hover{
+     border-bottom: 1px solid red;
+     color:red;
+     cursor: pointer;
+ }
+ 
+ .frontbar .signbar:active{
+     border-bottom: 3px solid red;
+     color:red;
+     font-weight: 600;
+ }
+ 
+ .frontbar .findbar{
+     width:34%;
+     height:100%;
+     float : left;
+     border-bottom: 1px solid black;
+     text-align: center;
+     padding-top:27px;
+     font-size: 30px;
+ }
+ 
+ .frontbar .findbar:hover{
+     border-bottom: 1px solid red;
+     color:red;
+     cursor: pointer;
+ }
+ 
+ .frontbar .findbar:active{
+     border-bottom: 3px solid red;
+     color:red;
+     font-weight: 600;
+ }
+ 
+ .frontbar .active{
+     border-bottom: 3px solid red;
+     color:red;
+     font-weight: 600;
+ }
+.container_2{
+    font-size:15px;
+    text-align: center;
+    margin-left:700px;
+    justify-content: center;
+}
+
+h2{
+    text-align: justify;    
+}
+
+.basic-addon1{
+    width: auto;
+}
+span.Gender{
+    width: 60px;
+}
+
+span.type{
+    width: 90px;
+}
+
+.form-control{
+    width: 200px;
+}
+
+.input-group{
+    width:500px;
+}
+
+/* 회원가입 */
+
+.join{
+    width: 500px;
+    text-align: center;
+}
+
+/* 유저 오른쪽 확인 */
+
+.userCheck{
+    display: flex;
+    height: 100%;
+}
+
+.fa-solid{
+    margin: 6px;
+}
+
+.icon-botton{
+    margin: 800px;
+}
+
+.input-group mb-3{
+    display: flex;
+}
+
+.form-check{
+    margin-top: 8px;
+}
+
+.icon_botton{
+    display: flex;
+}
+
+.btn{
+    height: 100%;
+}
+
+.sss{
+    display: flex;
+}
+
+h6{
+    margin-top: 8px;
+}

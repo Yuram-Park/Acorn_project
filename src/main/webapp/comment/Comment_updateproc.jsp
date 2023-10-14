@@ -7,15 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:useBean id="dto" class="comment_bean.CommentDto"/>
-<jsp:useBean id="dao" class="comment_bean.CommentDao"/>
+<jsp:useBean id="commentDto" class="comment.CommentDto"/>
+<jsp:useBean id="commentDao" class="comment.CommentDao"/>
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
-<jsp:setProperty property="*" name="dto"/>
+<jsp:setProperty property="*" name="commentDto"/>
 <% 
-	dao.setCommentUpdate(dto);
-	response.sendRedirect("../review_board/Review_board_detail.jsp?post_id="+ dto.getPost_id()); // 해당 글로 넘어가게 하기
+commentDao.setCommentUpdate(commentDto);
+response.sendRedirect("../post/post_detail.jsp?post_id="+ commentDto.getPost_id()); // 해당 글로 넘어가게 하기
 %>
 </body>
 </html>

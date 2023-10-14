@@ -7,20 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:useBean id="dto" class="comment_bean.CommentDto"/>
-<jsp:useBean id="dao" class="comment_bean.CommentDao"/>
+<jsp:useBean id="commentDto" class="comment.CommentDto"/>
+<jsp:useBean id="commentDao" class="comment.CommentDao"/>
 
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
-<jsp:setProperty property="*" name="dto"/>
+<jsp:setProperty property="*" name="commentDto"/>
 
 <%
 	String user_id = (String)session.getAttribute("sessionID");
-	dto.setUser_id(user_id);
-	
-	dao.setComment(dto);
-	response.sendRedirect("../review_board/Review_board_detail.jsp?post_id="+dto.getPost_id());
+    commentDto.setUser_id(user_id);
+
+    commentDao.setComment(commentDto);
+	response.sendRedirect("../post/post_detail.jsp?post_id="+commentDto.getPost_id());
+
 %>
 
 </body>
