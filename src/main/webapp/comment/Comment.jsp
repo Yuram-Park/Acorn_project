@@ -20,7 +20,7 @@
     commentDto.setUser_id(user_id);
 
     commentDao.setComment(commentDto);
-	response.sendRedirect("../post/post_detail.jsp?post_id="+commentDto.getPost_id());
+	response.sendRedirect("../post/post_detail.jsp?board_id="+commentDto.getBoard_id()+"&post_id="+commentDto.getPost_id());
 
 %>
 

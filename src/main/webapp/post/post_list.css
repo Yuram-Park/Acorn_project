@@ -2,6 +2,11 @@ body{
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
 .navout{
     padding-left:50px;
     padding-right:50px;	
@@ -67,7 +72,7 @@ nav.navbar{
 
 .mylist{
     width:300px;
-    height:1000px;
+    height:1100px;
     background-color: #e7f4ff;
     float:left;
 }
@@ -146,7 +151,7 @@ h4{
 .container_4{
     padding: 50px;
     width: calc(100% - 350px);
-    height: 1600px;
+    height: 1000px;
     display: flex;
     margin-left: 350px;
 }
@@ -181,11 +186,11 @@ div.nextBtn button{
 }
 
 .card{
-    height:300px;
+    height:350px;
 }
 
 div.col {
-    width: 450px
+    width: 370px
 }
 
 div.card-body{
@@ -235,7 +240,7 @@ button.btn.btn-secondary{
 
 img{
     width: 150px;
-    height: 150px;
+    height: 200px;
     overflow: hidden;
     padding: 15px;
     border-radius: 20px;
@@ -286,5 +291,10 @@ ul.dropdown-menu{
 .fa-review{
     color:rgb(170, 170, 170);
     margin-left:1100px;
+}
+
+.btn-primary{
+	float: right;
+	margin-right: 30px;
 }
 /* ----------------- */

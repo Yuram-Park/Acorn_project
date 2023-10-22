@@ -2,6 +2,11 @@ body{
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
 .navout{
     padding-left:50px;
     padding-right:50px;	
@@ -245,7 +250,8 @@ img{
 }
 
 div.btn_cen{
-    margin-left: 900px;
+    margin-right: 0px;
+    float:right;
 }
 
 select.form-select{

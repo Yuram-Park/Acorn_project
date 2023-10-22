@@ -3,12 +3,21 @@ package comment;
 import java.sql.Date;
 
 public class CommentDto {
-    private int comment_id;
+	private int board_id;
+	private int comment_id;
     private String user_id;
     private String user_nickname;
     private int post_id;
     private String comment_content;
     private Date comment_create_date;
+    
+    public int getBoard_id() {
+		return board_id;
+	}
+
+	public void setBoard_id(int board_id) {
+		this.board_id = board_id;
+	}
 
     public int getComment_id() {
         return comment_id;
