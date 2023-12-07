@@ -1,11 +1,10 @@
-import GNB from './GlobalNavigationBar';
+
 
 const Post_list = () => {
 
     return (
         <div>
-            <GNB/>
-            
+            <h1>후기게시판</h1>
         </div>
     );
 }

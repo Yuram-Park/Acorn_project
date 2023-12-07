@@ -1,4 +1,4 @@
-import {Routes, Route, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Post_list from "./Post_list";
 
 
@@ -62,9 +62,6 @@ const GlobalNavigationBar = () => {
                     </form>
                 </div>
             </div>
-            <Routes>
-                <Route path="/post/list" element={<Post_list/>}></Route>
-            </Routes>
         </nav>
     );
 }
