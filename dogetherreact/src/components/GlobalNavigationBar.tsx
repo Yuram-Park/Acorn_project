@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import Post_list from "./Post_list";
+import './GlobalNavigationBar.css';
 
 
 const GlobalNavigationBar = () => {
@@ -7,7 +7,7 @@ const GlobalNavigationBar = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
-                <a className="navbar-brand" href="<c:url value='/'/>">Dogether</a>
+                <Link className="navbar-brand" to="/">Dogether</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -28,10 +28,10 @@ const GlobalNavigationBar = () => {
 
                         <li className="nav-item dropdown-center"><a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">커뮤니티</a>
                             <ul className="dropdown-menu">
-                                <li><Link to="/post/list?board_id=1">공지사항</Link></li>
-                                <li><Link to="/post/list?board_id=2">후기게시판</Link></li>
-                                <li><Link to="/post/list?board_id=3">홍보게시판</Link></li>
-                                <li><Link to="/post/list?board_id=4">뉴스/칼럼</Link></li>
+                                <li><Link to="/post/list" state={{board_id:1}}>공지사항</Link></li>
+                                <li><Link to="/post/list" state={{board_id:2}}>후기게시판</Link></li>
+                                <li><Link to="/post/list" state={{board_id:3}}>홍보게시판</Link></li>
+                                <li><Link to="/post/list" state={{board_id:4}}>뉴스/칼럼</Link></li>
                             </ul></li>
 
                         <li className="nav-item dropdown-center"><a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">마이페이지</a>
